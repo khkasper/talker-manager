@@ -8,10 +8,11 @@ const HTTP_OK_STATUS = 200;
 const PORT = '3000';
 
 const {
+  createTalkerRouter,
+  editTalkerRouter,
   getAllTalkersRouter,
   getTalkerByIdRouter,
   loginRouter,
-  createTalkerRouter,
 } = require('./routers');
 
 // não remova esse endpoint, e para o avaliador funcionar
@@ -19,7 +20,7 @@ app.get('/', (_request, response) => {
   response.status(HTTP_OK_STATUS).send();
 });
 
-app.use('/talker', getAllTalkersRouter, getTalkerByIdRouter, createTalkerRouter);
+app.use('/talker', getAllTalkersRouter, getTalkerByIdRouter, createTalkerRouter, editTalkerRouter);
 app.use('/login', loginRouter);
 
 app.listen(PORT, () => {
