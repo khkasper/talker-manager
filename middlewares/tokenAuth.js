@@ -1,8 +1,13 @@
-const crypto = require('crypto');
+module.exports = () => (req, res, next) => {
+  const { authorization } = req.headers;
 
-module.exports = () => (_req, res) => {
-  const token = crypto.randomBytes(8).toString('hex');
-  res.status(200).json({ token });
+  if (!authorization) {
+    return res.status(401).json({ message: 'Token não encontrado' });
+  }
+
+  if (authorization.length !== 16) {
+    return res.status(401).json({ message: 'Token inválido' });
+  }
+
+  next();
 };
-
-// https://www.w3schools.com/nodejs/ref_crypto.asp

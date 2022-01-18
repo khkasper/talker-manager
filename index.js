@@ -11,6 +11,7 @@ const {
   getAllTalkersRouter,
   getTalkerByIdRouter,
   loginRouter,
+  createTalkerRouter,
 } = require('./routers');
 
 // não remova esse endpoint, e para o avaliador funcionar
@@ -18,7 +19,7 @@ app.get('/', (_request, response) => {
   response.status(HTTP_OK_STATUS).send();
 });
 
-app.use('/talker', getAllTalkersRouter, getTalkerByIdRouter);
+app.use('/talker', getAllTalkersRouter, getTalkerByIdRouter, createTalkerRouter);
 app.use('/login', loginRouter);
 
 app.listen(PORT, () => {
