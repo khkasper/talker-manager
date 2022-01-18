@@ -10,6 +10,7 @@ const PORT = '3000';
 const {
   getAllTalkersRouter,
   getTalkerByIdRouter,
+  loginRouter,
 } = require('./routers');
 
 // não remova esse endpoint, e para o avaliador funcionar
@@ -18,6 +19,7 @@ app.get('/', (_request, response) => {
 });
 
 app.use('/talker', getAllTalkersRouter, getTalkerByIdRouter);
+app.use('/login', loginRouter);
 
 app.listen(PORT, () => {
   console.log('Online');
