@@ -13,12 +13,12 @@ const {
 const router = express.Router();
 
 router.put('/:id', [
-  tokenAuth(),
-  nameAuth(),
-  ageAuth(),
-  talkAuth(),
-  watchedAtAuth(),
-  rateAuth(),
+  tokenAuth,
+  nameAuth,
+  ageAuth,
+  talkAuth,
+  watchedAtAuth,
+  rateAuth,
   rescue(async (req, res) => {
     const { id } = req.params;
     const allTalkersList = await getAllTalkers();

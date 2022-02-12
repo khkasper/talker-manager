@@ -6,7 +6,7 @@ const { tokenAuth } = require('../middlewares');
 const router = express.Router();
 
 router.get('/', [
-  tokenAuth(),
+  tokenAuth,
   rescue(async (req, res) => {
     const { q } = req.query;
     const allTalkersList = await getAllTalkers();

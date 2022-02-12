@@ -1,4 +1,4 @@
-module.exports = () => (req, res, next) => {
+module.exports = (req, res, next) => {
   const { talk: { watchedAt } } = req.body;
   const dateRx = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
 

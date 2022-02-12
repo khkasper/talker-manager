@@ -6,7 +6,7 @@ const { tokenAuth } = require('../middlewares');
 const router = express.Router();
 
 router.delete('/:id', [
-  tokenAuth(),
+  tokenAuth,
   rescue(async (req, res) => {
     const { id } = req.params;
     const allTalkersList = await getAllTalkers();
